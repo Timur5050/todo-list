@@ -17,9 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from todolist_api.views import TodoListAPIView
+from todolist_api.views import TodoListAPIView, TodoListAPIPost, TodoListUpdate, TodoListDelete
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/todoList', TodoListAPIView.as_view())
+    path('api/v1/todoList/', TodoListAPIView.as_view()),
+    path('api/v1/todoList/create/', TodoListAPIPost.as_view()),
+    path('api/v1/todoList/update/<int:pk>/', TodoListUpdate.as_view()),
+    path('api/v1/todoList/delete/<int:pk>/', TodoListDelete.as_view())
 ]
