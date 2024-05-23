@@ -1,3 +1,6 @@
+from django.http import HttpResponse
+from django.shortcuts import render
+from django.template.loader import render_to_string
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser, IsAuthenticated
 
@@ -37,3 +40,9 @@ class TodoListDelete(generics.DestroyAPIView):
     queryset = TodoList.objects.all()
     serializer_class = TodoListSerializer
     permission_classes = (IsAdminUser, )
+
+
+def index(request):
+    queryset = TodoList.objects.all()
+    return render(request, 'index.html', {'todos': queryset})
+

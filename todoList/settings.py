@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-9&kjvpt1_v3&wev+#7ke&6%*p(as_3ur5$cw5778nq5t)u_kqb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]']
 
 
 # Application definition
@@ -58,7 +58,9 @@ ROOT_URLCONF = 'todoList.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / 'templates'
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -20,6 +20,7 @@ from django.urls import path, include, re_path
 from todolist_api.views import TodoListAPIView, TodoListAPIPost, TodoListUpdate, TodoListDelete
 
 urlpatterns = [
+    path('', include('todolist_api.urls')),
     path('admin/', admin.site.urls),
     path('api/v1/drf-auth/', include('rest_framework.urls')),
     path('api/v1/todoList/', TodoListAPIView.as_view()),
